@@ -55,7 +55,7 @@ class DNFOneSidePerformanceOracleWithTolerance(object):
         perf_to_return = max(list_of_perfs)
 
         for i in xrange(len(list_of_perfs)):
-            perf_to_return -= ((1 - list_of_perfs[i])/len(self.concept_class.get_ideal_function()))
+            perf_to_return -= (1 - list_of_perfs[i])/len(self.concept_class.get_ideal_function())
 
         return perf_to_return
 

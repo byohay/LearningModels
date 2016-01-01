@@ -37,7 +37,7 @@ def learn_DNF__recombination():
                                                                   conjunction_performance_oracle)
     mutation_neighborhood = MonotoneConjunctionNeighborhood()
 
-    recomb_rate = 0.35
+    recomb_rate = 0.176
     natural_process = RecombinationProcess(recomb_rate)
 
     neighborhood = NeighborhoodWithOtherRepresentations(length, mutation_neighborhood,
@@ -79,7 +79,7 @@ def learn_DNF__HGT():
                                                                   conjunction_performance_oracle)
     mutation_neighborhood = MonotoneConjunctionNeighborhood()
 
-    natural_process = HGTProcess(0.35, length)
+    natural_process = HGTProcess(0.176, length)
 
     neighborhood = NeighborhoodWithOtherRepresentations(length, mutation_neighborhood,
                                                         0.1, natural_process)
