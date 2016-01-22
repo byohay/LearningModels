@@ -20,11 +20,11 @@ __author__ = 'yben_000'
 
 class CommonClassesCreator(object):
     def __init__(self, is_neigh_precomp=True):
-        self.length = 40
-        self.epsilon = 2**-31
-        self.number_of_activations = 10
-        self.number_of_mutations_from_mutator = 40
-        self.population_size = 200
+        self.length = 70
+        self.epsilon = 2**-50
+        self.number_of_activations = 3
+        self.number_of_mutations_from_mutator = 50
+        self.population_size = 75
 
         self.tolerance = ConjunctionTolerance(self.length, self.epsilon)
         self.tau = (self.epsilon / self.length)**3 * log(1/self.epsilon)
