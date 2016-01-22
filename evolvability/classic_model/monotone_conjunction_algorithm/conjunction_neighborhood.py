@@ -19,9 +19,21 @@ class MonotoneConjunctionNeighborhood(Neighborhood):
 
         rep_plus_minus.add(tuple(rep))
 
+        index_of_0 = list()
+        index_of_1 = list()
+
         for i in xrange(len(rep)):
-            for j in xrange(i+1, len(rep)):
-                rep_plus_minus.add(tuple(rep[:i] + [rep[j]] + rep[i+1:j] + [rep[i]] + rep[j+1:]))
+            if rep[i] == 1:
+                index_of_1.append(i)
+            else:
+                index_of_0.append(i)
+
+        for i in index_of_1:
+            for j in index_of_0:
+                if j <= i:
+                    rep_plus_minus.add(tuple(rep[:j] + [1] + rep[j+1:i] + [0] + rep[i+1:]))
+                else:
+                    rep_plus_minus.add(tuple(rep[:i] + [0] + rep[i+1:j] + [1] + rep[j+1:]))
 
         return rep_plus_minus
 
