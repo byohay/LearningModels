@@ -11,6 +11,22 @@ class Conjunction:
     def get_ideal_function(self):
         return self.ideal_function
 
+    def set_ideal_function_with_genes_from_real_data(self):
+        if self.n < 58:
+            print "Something is not right!!"
+            return
+
+        self.ideal_function = list(self.ideal_function)
+
+        genes_indices = range(self.n)
+
+        for i in xrange(58):
+            gene_index = choice(genes_indices)
+            self.ideal_function[gene_index] = 1
+            genes_indices.remove(gene_index)
+
+        self.ideal_function = tuple(self.ideal_function)
+
     def get_random_sample(self):
         return [choice([-1, 1]) for _ in xrange(self.n)]
 

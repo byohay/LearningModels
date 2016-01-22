@@ -82,8 +82,8 @@ class CommonClassesCreator(object):
     def create_next_HGT_process(self, HGT_factor):
         self.natural_process = HGTProcess(HGT_factor, self.length)
 
-    def create_recombination_process(self):
-        self.natural_process = RecombinationProcess()
+    def create_recombination_process(self, rate=1):
+        self.natural_process = RecombinationProcess(rate)
 
     def get_natural_process(self):
         return self.natural_process

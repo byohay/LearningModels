@@ -21,6 +21,7 @@ def get_params_for_mutator(common_classes):
     natural_process = common_classes.get_natural_process()
 
     concept_class = MonotoneConjunction(length)
+    concept_class.set_ideal_function_with_genes_from_real_data()
 
     performance_oracle = common_classes.get_perf_without_precomp(concept_class)
     neighborhood = common_classes.get_neighborhood_with_other_representations(mutation_factor)
@@ -65,7 +66,7 @@ def learn_single_time__classic_model(common_classes):
 
 def learn_recombination(common_classes, number_of_activations):
     total_number_of_generations = 0
-    common_classes.create_recombination_process()
+    common_classes.create_recombination_process(common_classes.get_HGT_factor())
     for _ in xrange(number_of_activations):
         current_generation_number = learn_single_time__recombination(common_classes)
         total_number_of_generations += current_generation_number
@@ -102,10 +103,13 @@ def learn_classical_model(common_classes, number_of_activations):
 
 
 def run_in_parallel(common_classes, number_of_activations, function_to_run,
-                    parallel, number_of_parallel):
+                    parallel, number_of_parallel, is_parallel=True):
 
-    avg_number_of_generations = sum(parallel(delayed(function_to_run)(common_classes, number_of_activations / number_of_parallel)
-                                             for _ in xrange(number_of_parallel))) / number_of_parallel
+    if is_parallel:
+        avg_number_of_generations = sum(parallel(delayed(function_to_run)(common_classes, number_of_activations / number_of_parallel)
+                                                 for _ in xrange(number_of_parallel))) / number_of_parallel
+    else:
+        avg_number_of_generations = function_to_run(common_classes, number_of_activations)
 
     f = open('results.txt', 'a')
 
@@ -227,15 +231,40 @@ def compare_with_population_factors(common_classes):
                         parallel=parallel, number_of_parallel=number_of_parallel)
 
 
+def compare_with_real_data(common_classes):
+    number_of_activations = common_classes.get_number_of_activations()
+    common_classes.set_simulation_variables(0.176, 0.1, 1)
+    number_of_parallel = 3
+    parallel = Parallel(n_jobs=number_of_parallel)
+    length, epsilon, mutation_neighborhood, tolerance = common_classes.get_common_classes()
+
+    f = open('results.txt', 'a')
+    f.write("\n~~~real data experiment~~~\n")
+    f.write("\nlenghth is {0} and epsilon is {1}\n".format(length, epsilon))
+    f.close()
+
+    f = open('results.txt', 'a')
+    f.write("\nHGT:\n")
+    f.close()
+
+    run_in_parallel(common_classes, number_of_activations, function_to_run=learn_HGT,
+                    parallel=parallel, number_of_parallel=number_of_parallel, is_parallel=False)
+
+    f = open('results.txt', 'a')
+    f.write("\nrecombination:\n")
+    f.close()
+
+    run_in_parallel(common_classes, number_of_activations, function_to_run=learn_recombination,
+                    parallel=parallel, number_of_parallel=number_of_parallel, is_parallel=False)
+
+
 def run_models_without_precomp():
     pr = cProfile.Profile()
 
     pr.enable()
 
     common_classes = CommonClassesCreator(False)
-    compare_with_HGT_factors(common_classes)
-    compare_with_mutation_factors(common_classes)
-    compare_with_population_factors(common_classes)
+    compare_with_real_data(common_classes)
 
     pr.disable()
 
