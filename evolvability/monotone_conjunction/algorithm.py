@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 __author__ = 'yben_000'
 
 
@@ -22,4 +24,4 @@ class MonotoneConjunctionAlgorithm(object):
         return max_perf
 
     def is_representation_similar_to_ideal(self, rep):
-        return self.performance_oracle.get_real_performance(rep) > 1 - self.epsilon
+        return Decimal(1) - self.performance_oracle.get_real_performance(rep) < Decimal(self.epsilon)

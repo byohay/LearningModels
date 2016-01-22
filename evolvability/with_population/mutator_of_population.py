@@ -1,3 +1,4 @@
+from decimal import Decimal
 from random import choice
 
 __author__ = 'yben_000'
@@ -19,7 +20,7 @@ class MutatorOfPopulation(object):
         for rep in desc:
             rep_perf = self.performance.get_estimated_performance(rep)
 
-            if rep_perf >= parent_performance - parent_tolerance:
+            if rep_perf >= parent_performance - Decimal(parent_tolerance):
                 feas.append(rep)
 
         return feas

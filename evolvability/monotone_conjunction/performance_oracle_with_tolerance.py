@@ -1,3 +1,4 @@
+from decimal import Decimal
 from numpy import random
 
 __author__ = 'yben_000'
@@ -27,10 +28,17 @@ class PerformanceOracleWithTolerance(object):
             elif i is 0 and j is 1:
                 in_ideal_not_in_rep += 1
 
-        real_perf = 2**-union + (1 - 2**-intersection) + (2**-intersection)*(1 - 2**-in_rep_not_in_ideal) *\
-                                                                            (1 - 2**-in_ideal_not_in_rep)
+        real_perf = Decimal(2**-union) + (Decimal(1) - Decimal(2**-intersection)) + Decimal(2**-intersection)*(Decimal(1) - Decimal(2**-in_rep_not_in_ideal)) *\
+                                                                            (Decimal(1) - Decimal(2**-in_ideal_not_in_rep))
 
         return real_perf
 
     def get_estimated_performance(self, representation):
-        return self.get_real_performance(representation) + random.uniform(-self.tolerance_param, self.tolerance_param)
+        tolerance = Decimal(random.uniform(-self.tolerance_param, self.tolerance_param))
+        real_perf = self.get_real_performance(representation)
+        if tolerance + real_perf > 1:
+            return 1
+        elif tolerance + real_perf < -1:
+            return -1
+
+        return tolerance + real_perf

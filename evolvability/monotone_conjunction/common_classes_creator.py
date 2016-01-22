@@ -1,3 +1,4 @@
+from decimal import Decimal
 from math import log
 
 from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.conjunction_mutation_probability import \
@@ -20,14 +21,14 @@ __author__ = 'yben_000'
 
 class CommonClassesCreator(object):
     def __init__(self, is_neigh_precomp=True):
-        self.length = 70
-        self.epsilon = 2**-50
+        self.length = 100
+        self.epsilon = Decimal(2**-80)
         self.number_of_activations = 3
         self.number_of_mutations_from_mutator = 50
         self.population_size = 75
 
         self.tolerance = ConjunctionTolerance(self.length, self.epsilon)
-        self.tau = (self.epsilon / self.length)**3 * log(1/self.epsilon)
+        self.tau = 0  # (self.epsilon / Decimal(self.length))**Decimal(3) * log(1/self.epsilon)
 
         self.representation_class = None
 
