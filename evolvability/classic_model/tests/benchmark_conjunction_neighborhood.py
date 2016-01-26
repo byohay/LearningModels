@@ -1,6 +1,6 @@
 import cProfile
 import pstats
-from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.conjunction_neighborhood import \
+from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_neighborhood import \
     MonotoneConjunctionNeighborhood
 
 __author__ = 'Ben'

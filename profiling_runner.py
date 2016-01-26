@@ -1,12 +1,12 @@
 import cProfile
 import pstats
-from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.run_simulation import \
+from evolvability.classic_model.monotone_conjunction_algorithm.run_simulation import \
     run_simulation__classical_model
 
-from LearningModels.evolvability.with_population.HGT.run_simulation import\
+from evolvability.with_population.HGT.run_simulation import\
     HGT_simulations_main__HGT_factor, HGT_simulations_main__population_factor, HGT_simulations_main__mutation_factor, \
     HGT_simulations_main__performance_rate
-from LearningModels.evolvability.with_population.recombination.run_simulation import recombination_simulations_main, \
+from evolvability.with_population.recombination.run_simulation import recombination_simulations_main, \
     recombination_simulations_main__population_factor
 
 __author__ = 'yben_000'

@@ -1,4 +1,4 @@
-from LearningModels.evolvability.classic_model.mutation_probability import MutationProbability
+from evolvability.classic_model.mutation_probability import MutationProbability
 
 __author__ = 'yben_000'
 

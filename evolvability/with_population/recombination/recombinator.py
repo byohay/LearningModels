@@ -1,5 +1,5 @@
 import random
-from LearningModels.evolvability.with_population.mutator_of_population import MutatorOfPopulation
+from evolvability.with_population.mutator_of_population import MutatorOfPopulation
 
 __author__ = 'yben_000'
 

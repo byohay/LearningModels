@@ -1,26 +1,26 @@
 from math import log
-from LearningModels.DNF import DNF
-from LearningModels.evolvability.DNF.one_side_performance_oracle_with_tolerance import DNFOneSidePerformanceOracleWithTolerance
-from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.conjunction_evolvability_algorithm import \
+from DNF import DNF
+from evolvability.DNF.one_side_performance_oracle_with_tolerance import DNFOneSidePerformanceOracleWithTolerance
+from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_evolvability_algorithm import \
     ConjunctionEvolvabilityAlgorithm
-from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.conjunction_mutation_probability import \
+from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_mutation_probability import \
     ConjunctionMutationProbability
-from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.conjunction_neighborhood import \
+from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_neighborhood import \
     MonotoneConjunctionNeighborhood
-from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.conjunction_tolerance import \
+from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_tolerance import \
     ConjunctionTolerance
-from LearningModels.evolvability.classic_model.mutator import Mutator
-from LearningModels.evolvability.monotone_conjunction.one_sided_performance_oracle_with_tolerance import \
+from evolvability.classic_model.mutator import Mutator
+from evolvability.monotone_conjunction.one_sided_performance_oracle_with_tolerance import \
     OneSidedPerformanceOracleWithTolerance
-from LearningModels.evolvability.monotone_conjunction.performance_oracle_with_tolerance import \
+from evolvability.monotone_conjunction.performance_oracle_with_tolerance import \
     PerformanceOracleWithTolerance
-from LearningModels.evolvability.with_population.HGT.HGT_mutator import HGT_Mutator
-from LearningModels.evolvability.with_population.HGT.HGT_process import HGTProcess
-from LearningModels.evolvability.with_population.monotone_conjunction_algorithm.constant_population_algorithm import \
+from evolvability.with_population.HGT.HGT_mutator import HGT_Mutator
+from evolvability.with_population.HGT.HGT_process import HGTProcess
+from evolvability.with_population.monotone_conjunction_algorithm.constant_population_algorithm import \
     ConstantPopulationMutationConjunctionAlgorithm
-from LearningModels.evolvability.with_population.neighborhood import NeighborhoodWithOtherRepresentations
-from LearningModels.evolvability.with_population.recombination.recombination_process import RecombinationProcess
-from LearningModels.evolvability.with_population.recombination.recombinator import Recombinator
+from evolvability.with_population.neighborhood import NeighborhoodWithOtherRepresentations
+from evolvability.with_population.recombination.recombination_process import RecombinationProcess
+from evolvability.with_population.recombination.recombinator import Recombinator
 
 __author__ = 'yben_000'
 

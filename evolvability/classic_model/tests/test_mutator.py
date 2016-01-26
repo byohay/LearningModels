@@ -2,7 +2,7 @@ import unittest
 
 from mock.mock import Mock
 
-from LearningModels.evolvability.classic_model.mutator import Mutator
+from evolvability.classic_model.mutator import Mutator
 
 __author__ = 'yben_000'
 

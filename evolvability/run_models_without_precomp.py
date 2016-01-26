@@ -1,16 +1,16 @@
 import cProfile
 import pstats
 from joblib.parallel import Parallel, delayed
-from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.conjunction_evolvability_algorithm import \
+from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_evolvability_algorithm import \
     ConjunctionEvolvabilityAlgorithm
-from LearningModels.evolvability.classic_model.mutator import Mutator
-from LearningModels.evolvability.global_functions import frange
-from LearningModels.evolvability.monotone_conjunction.common_classes_creator import CommonClassesCreator
-from LearningModels.evolvability.with_population.HGT.HGT_mutator import HGT_Mutator
-from LearningModels.evolvability.with_population.monotone_conjunction_algorithm.constant_population_algorithm import \
+from evolvability.classic_model.mutator import Mutator
+from evolvability.global_functions import frange
+from evolvability.monotone_conjunction.common_classes_creator import CommonClassesCreator
+from evolvability.with_population.HGT.HGT_mutator import HGT_Mutator
+from evolvability.with_population.monotone_conjunction_algorithm.constant_population_algorithm import \
     ConstantPopulationMutationConjunctionAlgorithm
-from LearningModels.evolvability.with_population.recombination.recombinator import Recombinator
-from LearningModels.monotone_conjunctions import MonotoneConjunction
+from evolvability.with_population.recombination.recombinator import Recombinator
+from monotone_conjunctions import MonotoneConjunction
 
 __author__ = 'yben_000'
 

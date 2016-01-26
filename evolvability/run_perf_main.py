@@ -1,11 +1,11 @@
 from random import choice
-from LearningModels.evolvability.monotone_conjunction.one_sided_performance_oracle import OneSidedPerformanceOracle
-from LearningModels.evolvability.monotone_conjunction.one_sided_performance_oracle_with_tolerance import \
+from evolvability.monotone_conjunction.one_sided_performance_oracle import OneSidedPerformanceOracle
+from evolvability.monotone_conjunction.one_sided_performance_oracle_with_tolerance import \
     OneSidedPerformanceOracleWithTolerance
 
-from LearningModels.evolvability.monotone_conjunction.performance_oracle import PerformanceOracle
-from LearningModels.evolvability.monotone_conjunction.performance_oracle_with_tolerance import PerformanceOracleWithTolerance
-from LearningModels.monotone_conjunctions import MonotoneConjunction
+from evolvability.monotone_conjunction.performance_oracle import PerformanceOracle
+from evolvability.monotone_conjunction.performance_oracle_with_tolerance import PerformanceOracleWithTolerance
+from monotone_conjunctions import MonotoneConjunction
 
 __author__ = 'yben_000'
 

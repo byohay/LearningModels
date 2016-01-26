@@ -2,7 +2,7 @@ import unittest
 
 from mock.mock import Mock
 
-from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.conjunction_mutation_probability import ConjunctionMutationProbability
+from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_mutation_probability import ConjunctionMutationProbability
 
 __author__ = 'yben_000'
 

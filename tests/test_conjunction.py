@@ -1,5 +1,5 @@
 import unittest
-from LearningModels.conjunction import Conjunction
+from conjunction import Conjunction
 
 __author__ = 'yben_000'
 

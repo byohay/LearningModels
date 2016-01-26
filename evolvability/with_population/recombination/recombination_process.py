@@ -1,6 +1,6 @@
 from itertools import izip
 import random
-from LearningModels.evolvability.with_population.natural_process_mutation_calculator import \
+from evolvability.with_population.natural_process_mutation_calculator import \
     NaturalProcessMutationCalculator
 
 __author__ = 'yben_000'

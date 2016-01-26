@@ -1,8 +1,8 @@
-from LearningModels.evolvability.monotone_conjunction.common_classes_creator import CommonClassesCreator
-from LearningModels.evolvability.classic_model.monotone_conjunction_algorithm.conjunction_evolvability_algorithm import \
+from evolvability.monotone_conjunction.common_classes_creator import CommonClassesCreator
+from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_evolvability_algorithm import \
     ConjunctionEvolvabilityAlgorithm
-from LearningModels.evolvability.classic_model.mutator import Mutator
-from LearningModels.monotone_conjunctions import MonotoneConjunction
+from evolvability.classic_model.mutator import Mutator
+from monotone_conjunctions import MonotoneConjunction
 
 __author__ = 'yben_000'
 

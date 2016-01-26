@@ -2,7 +2,7 @@ import unittest
 
 from mock.mock import Mock
 
-from LearningModels.evolvability.monotone_conjunction.performance_oracle import PerformanceOracle
+from evolvability.monotone_conjunction.performance_oracle import PerformanceOracle
 
 __author__ = 'yben_000'
 

@@ -1,4 +1,4 @@
-from LearningModels.evolvability.with_population.monotone_conjunction_algorithm.conjunction_algorithm import \
+from evolvability.with_population.monotone_conjunction_algorithm.conjunction_algorithm import \
     MutationConjunctionAlgorithm
 
 __author__ = 'yben_000'

@@ -1,5 +1,5 @@
 import unittest
-from LearningModels.evolvability.with_population.recombination.recombination_process import RecombinationProcess
+from evolvability.with_population.recombination.recombination_process import RecombinationProcess
 
 __author__ = 'yben_000'
 

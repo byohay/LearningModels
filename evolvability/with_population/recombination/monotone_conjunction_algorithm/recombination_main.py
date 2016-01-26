@@ -1,10 +1,10 @@
-from LearningModels.evolvability.monotone_conjunction.common_classes_creator import CommonClassesCreator
-from LearningModels.evolvability.with_population.neighborhood import NeighborhoodWithOtherRepresentations
-from LearningModels.evolvability.with_population.recombination.monotone_conjunction_algorithm.recombination_conjunction import \
+from evolvability.monotone_conjunction.common_classes_creator import CommonClassesCreator
+from evolvability.with_population.neighborhood import NeighborhoodWithOtherRepresentations
+from evolvability.with_population.recombination.monotone_conjunction_algorithm.recombination_conjunction import \
     RecombinationConjunctionAlgorithm
-from LearningModels.evolvability.with_population.recombination.recombination_process import RecombinationProcess
-from LearningModels.evolvability.with_population.recombination.recombinator import Recombinator
-from LearningModels.monotone_conjunctions import MonotoneConjunction
+from evolvability.with_population.recombination.recombination_process import RecombinationProcess
+from evolvability.with_population.recombination.recombinator import Recombinator
+from monotone_conjunctions import MonotoneConjunction
 
 __author__ = 'yben_000'
 

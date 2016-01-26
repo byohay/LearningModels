@@ -1,7 +1,7 @@
-from LearningModels.PAC.PAC_Algorithm import PAC_Algorithm
-from LearningModels.PAC.PAC_oracle import PAC_Oracle
-from LearningModels.conjunction import Conjunction
-from LearningModels.uniform_distribution import UniformDistribution
+from PAC.PAC_Algorithm import PAC_Algorithm
+from PAC.PAC_oracle import PAC_Oracle
+from conjunction import Conjunction
+from uniform_distribution import UniformDistribution
 
 __author__ = 'yben_000'
 

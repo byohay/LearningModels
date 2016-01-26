@@ -1,7 +1,7 @@
 from random import choice
-from LearningModels.evolvability.monotone_conjunction.performance_oracle_with_tolerance import \
+from evolvability.monotone_conjunction.performance_oracle_with_tolerance import \
     PerformanceOracleWithTolerance
-from LearningModels.monotone_conjunctions import MonotoneConjunction
+from monotone_conjunctions import MonotoneConjunction
 
 __author__ = 'ben'
 

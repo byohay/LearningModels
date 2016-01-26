@@ -1,5 +1,5 @@
 from random import choice
-from LearningModels.distribution import Distribution
+from distribution import Distribution
 
 __author__ = 'yben_000'
 

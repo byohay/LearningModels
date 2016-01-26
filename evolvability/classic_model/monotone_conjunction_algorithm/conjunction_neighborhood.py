@@ -1,7 +1,4 @@
-from itertools import izip
-import distance
-
-from LearningModels.evolvability.classic_model.neighborhood import Neighborhood
+from evolvability.classic_model.neighborhood import Neighborhood
 
 __author__ = 'yben_000'
 

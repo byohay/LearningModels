@@ -2,7 +2,7 @@ import unittest
 
 from mock import Mock
 
-from LearningModels.PAC.PAC_Algorithm import PAC_Algorithm
+from PAC.PAC_Algorithm import PAC_Algorithm
 
 __author__ = 'yben_000'
 

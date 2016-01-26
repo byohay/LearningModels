@@ -1,10 +1,10 @@
-from LearningModels.evolvability.monotone_conjunction.common_classes_creator import CommonClassesCreator
-from LearningModels.evolvability.with_population.HGT.HGT_mutator import HGT_Mutator
-from LearningModels.evolvability.with_population.HGT.HGT_process import HGTProcess
-from LearningModels.evolvability.with_population.HGT.mutation_conjunction_algorithm import HGTConjunctionAlgorithm
-from LearningModels.evolvability.with_population.neighborhood import NeighborhoodWithOtherRepresentations
-from LearningModels.evolvability.global_functions import compute_part
-from LearningModels.monotone_conjunctions import MonotoneConjunction
+from evolvability.monotone_conjunction.common_classes_creator import CommonClassesCreator
+from evolvability.with_population.HGT.HGT_mutator import HGT_Mutator
+from evolvability.with_population.HGT.HGT_process import HGTProcess
+from evolvability.with_population.HGT.mutation_conjunction_algorithm import HGTConjunctionAlgorithm
+from evolvability.with_population.neighborhood import NeighborhoodWithOtherRepresentations
+from evolvability.global_functions import compute_part
+from monotone_conjunctions import MonotoneConjunction
 from joblib import Parallel, delayed
 
 __author__ = 'yben_000'

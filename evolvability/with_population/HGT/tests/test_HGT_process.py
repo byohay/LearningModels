@@ -1,7 +1,7 @@
 import unittest
-from LearningModels.evolvability.with_population.HGT.HGT_process import HGTProcess
+from evolvability.with_population.HGT.HGT_process import HGTProcess
 from mock import patch
-from LearningModels.evolvability.with_population.HGT.HGT_process_constant_genes_number import \
+from evolvability.with_population.HGT.HGT_process_constant_genes_number import \
     HGTProcessConstantGenesNumber
 
 __author__ = 'yben_000'

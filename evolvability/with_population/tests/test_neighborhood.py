@@ -1,7 +1,7 @@
 import unittest
 
 from mock.mock import Mock
-from LearningModels.evolvability.with_population.neighborhood import NeighborhoodWithOtherRepresentations
+from evolvability.with_population.neighborhood import NeighborhoodWithOtherRepresentations
 
 __author__ = 'yben_000'
 
