@@ -22,8 +22,8 @@ __author__ = 'yben_000'
 class CommonClassesCreator(object):
     def __init__(self, is_neigh_precomp=True):
         self.length = 100
-        self.epsilon = Decimal(2**-80)
-        self.number_of_activations = 3
+        self.epsilon = Decimal(2**-76)
+        self.number_of_activations = 20
         self.number_of_mutations_from_mutator = 50
         self.population_size = 75
 

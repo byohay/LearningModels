@@ -65,62 +65,67 @@ def learn_single_time__classic_model(common_classes):
 
 
 def learn_recombination(common_classes, number_of_activations):
-    total_number_of_generations = 0
-    common_classes.create_recombination_process(common_classes.get_HGT_factor())
+    list_of_generations = list()
+    common_classes.create_recombination_process(common_classes.get_recombination_factor())
+
     for _ in xrange(number_of_activations):
-        current_generation_number = learn_single_time__recombination(common_classes)
-        total_number_of_generations += current_generation_number
+        list_of_generations.append(learn_single_time__recombination(common_classes))
 
-    avg_number_of_generations = float(total_number_of_generations) / number_of_activations
-
-    return avg_number_of_generations
+    return list_of_generations
 
 
 def learn_HGT(common_classes, number_of_activations):
-    total_number_of_generations = 0
+    list_of_generations = list()
     HGT_factor = common_classes.get_HGT_factor()
     common_classes.create_next_HGT_process(HGT_factor)
 
     for _ in xrange(number_of_activations):
-        current_generation_number = learn_single_time__HGT(common_classes)
-        total_number_of_generations += current_generation_number
+        list_of_generations.append(learn_single_time__HGT(common_classes))
 
-    avg_number_of_generations = float(total_number_of_generations) / number_of_activations
-
-    return avg_number_of_generations
+    return list_of_generations
 
 
 def learn_classical_model(common_classes, number_of_activations):
-    total_number_of_generations = 0
+    list_of_generations = list()
 
     for _ in xrange(number_of_activations):
-        current_generation_number = learn_single_time__classic_model(common_classes)
-        total_number_of_generations += current_generation_number
+        list_of_generations .append(learn_single_time__classic_model(common_classes))
 
-    avg_number_of_generations = float(total_number_of_generations) / number_of_activations
+    return list_of_generations
 
-    return avg_number_of_generations
+
+def get_median_of_list(list_of_generations):
+    return sorted(list_of_generations)[len(list_of_generations)/2]
+
+
+def get_average_of_list(list_of_generations):
+    return float(sum(list_of_generations)) / len(list_of_generations)
 
 
 def run_in_parallel(common_classes, number_of_activations, function_to_run,
                     parallel, number_of_parallel, is_parallel=True):
 
+    list_of_generations = list()
+
     if is_parallel:
-        avg_number_of_generations = sum(parallel(delayed(function_to_run)(common_classes, number_of_activations / number_of_parallel)
-                                                 for _ in xrange(number_of_parallel))) / number_of_parallel
+        list_of_lists_of_generations = parallel(delayed(function_to_run)(common_classes, number_of_activations / number_of_parallel)
+                                                for _ in xrange(number_of_parallel))
+
+        for generation_list in list_of_lists_of_generations:
+            list_of_generations += generation_list
     else:
-        avg_number_of_generations = function_to_run(common_classes, number_of_activations)
+        list_of_generations = function_to_run(common_classes, number_of_activations)
 
     f = open('results.txt', 'a')
 
     HGT_factor, mutation_factor, population_factor = common_classes.get_simulation_variables()
 
-    f.write("results for the following parameters: HGT_factor=" + str(HGT_factor) +
-            " mutation factor=" + str(mutation_factor) + " population_factor=" + str(population_factor) +
-            " is: " + str(avg_number_of_generations) + "\n")
+    f.write("results for the following parameters: HGT_factor={0}, mutation factor={1},\
+population_factor={2}: average={3}, median={4}\n"
+            .format(HGT_factor, mutation_factor, population_factor,
+                    get_average_of_list(list_of_generations), get_median_of_list(list_of_generations)))
 
     f.close()
-
 
 def compare_with_HGT_factors(common_classes):
     number_of_activations = common_classes.get_number_of_activations()
@@ -234,8 +239,8 @@ def compare_with_population_factors(common_classes):
 def compare_with_real_data(common_classes):
     number_of_activations = common_classes.get_number_of_activations()
     common_classes.set_simulation_variables(0.176, 0.1, 1)
-    number_of_parallel = 3
     common_classes.set_recombination_factor(0.176)
+    number_of_parallel = 2
     parallel = Parallel(n_jobs=number_of_parallel)
     length, epsilon, mutation_neighborhood, tolerance = common_classes.get_common_classes()
 
@@ -249,14 +254,14 @@ def compare_with_real_data(common_classes):
     f.close()
 
     run_in_parallel(common_classes, number_of_activations, function_to_run=learn_HGT,
-                    parallel=parallel, number_of_parallel=number_of_parallel, is_parallel=False)
+                    parallel=parallel, number_of_parallel=number_of_parallel)
 
     f = open('results.txt', 'a')
     f.write("\nrecombination:\n")
     f.close()
 
     run_in_parallel(common_classes, number_of_activations, function_to_run=learn_recombination,
-                    parallel=parallel, number_of_parallel=number_of_parallel, is_parallel=False)
+                    parallel=parallel, number_of_parallel=number_of_parallel)
 
 
 def run_models_without_precomp():
