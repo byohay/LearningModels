@@ -5,6 +5,8 @@ from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_mutat
     ConjunctionMutationProbability
 from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_neighborhood import \
     MonotoneConjunctionNeighborhood
+from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_neighborhood_output_one import \
+    ConjunctionNeighborhoodOutputOne
 from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_tolerance import \
     ConjunctionTolerance
 from evolvability.classic_model.monotone_conjunction_algorithm.precomp_neighborhood import \
@@ -20,7 +22,7 @@ __author__ = 'yben_000'
 
 
 class CommonClassesCreator(object):
-    def __init__(self, is_neigh_precomp=True):
+    def __init__(self, is_neigh_precomp=True, is_using_output_one_neigh=True):
         self.length = 100
         self.epsilon = Decimal(2**-76)
         self.number_of_activations = 20
@@ -35,10 +37,13 @@ class CommonClassesCreator(object):
         if is_neigh_precomp:
             self.representation_class = get_set_of_all_representations_with_length(self.length)
             self.mutation_neighborhood = PrecompMonotoneConjunctionNeighborhood(self.representation_class)
+        elif is_using_output_one_neigh:
+            self.mutation_neighborhood = ConjunctionNeighborhoodOutputOne()
         else:
             self.mutation_neighborhood = MonotoneConjunctionNeighborhood()
 
         self.mutation_probability = ConjunctionMutationProbability(self.mutation_neighborhood)
+
         self.recombination_factor = 1
 
     def frange(self, x, y, jump):

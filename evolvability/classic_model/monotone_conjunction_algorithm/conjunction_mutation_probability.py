@@ -15,6 +15,10 @@ class ConjunctionMutationProbability(MutationProbability):
         :param epsilon:
         :return:
         """
+
+        if self.neighborhood_finder.__name__ == "ConjunctionNeighborhoodOutputOne":
+            return self.neighborhood_finder.get_one_of_neighborhood_of_rep()
+
         rep_plus_and_rep_minus_neighborhood = self.neighborhood_finder.get_rep_plus_and_rep_minus(representation)
 
         if other_rep in rep_plus_and_rep_minus_neighborhood:

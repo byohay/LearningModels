@@ -18,8 +18,7 @@ class NeighborhoodWithOtherRepresentations(object):
         single_mutation = self.natural_process_mutation.get_a_mutation_from_the_reps(first_rep, other_reps_to_consider)
 
         if random.random() < self.mutation_factor:
-            mutations = self.mutation_neighborhood.get_neighborhood_of_rep(single_mutation)
-            return random.choice(list(mutations))
+            return self.mutation_neighborhood.get_one_of_neighborhood_of_rep(single_mutation)
 
         return single_mutation
 
