@@ -8,10 +8,7 @@ class PerformanceOracleWithTolerance(object):
         self.concept_class = concept_class
         self.tolerance_param = tolerance_param
 
-    def get_real_performance(self, representation, conjunction = None):
-        if conjunction is None:
-            conjunction = self.concept_class.ideal_function
-
+    def get_variables_of_correlation(self, representation, conjunction):
         union = 0
         intersection = 0
         in_rep_not_in_ideal = 0
@@ -28,8 +25,16 @@ class PerformanceOracleWithTolerance(object):
             elif i is 0 and j is 1:
                 in_ideal_not_in_rep += 1
 
-        real_perf = Decimal(2**-union) + (Decimal(1) - Decimal(2**-intersection)) + Decimal(2**-intersection)*(Decimal(1) - Decimal(2**-in_rep_not_in_ideal)) *\
-                                                                            (Decimal(1) - Decimal(2**-in_ideal_not_in_rep))
+        return union, intersection, in_rep_not_in_ideal, in_ideal_not_in_rep
+
+    def get_real_performance(self, representation, conjunction=None):
+        if conjunction is None:
+            conjunction = self.concept_class.ideal_function
+
+        union, intersection, in_rep_not_in_ideal, in_ideal_not_in_rep = self.get_variables_of_correlation(representation, conjunction)
+
+        real_perf = 2**-union + (1 - 2**-intersection) + 2**-intersection*(1 - 2**-in_rep_not_in_ideal) *\
+                                                                          (1 - 2**-in_ideal_not_in_rep)
 
         return real_perf
 

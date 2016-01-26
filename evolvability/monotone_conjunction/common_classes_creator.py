@@ -14,6 +14,8 @@ from evolvability.classic_model.monotone_conjunction_algorithm.precomp_neighborh
 from evolvability.global_functions import get_set_of_all_representations_with_length
 from evolvability.monotone_conjunction.performance_oracle_with_precomp import PerformanceOracleWithPrecomp
 from evolvability.monotone_conjunction.performance_oracle_with_tolerance import PerformanceOracleWithTolerance
+from evolvability.monotone_conjunction.performance_oracle_with_tolerance_precise import \
+    PerformanceOracleWithTolerancePrecise
 from evolvability.with_population.HGT.HGT_process import HGTProcess
 from evolvability.with_population.neighborhood import NeighborhoodWithOtherRepresentations
 from evolvability.with_population.recombination.recombination_process import RecombinationProcess
@@ -105,7 +107,7 @@ class CommonClassesCreator(object):
         return self.mutation_probability
 
     def get_perf_without_precomp(self, concept_class):
-        return PerformanceOracleWithTolerance(concept_class, self.tau)
+        return PerformanceOracleWithTolerancePrecise(concept_class, self.tau)
 
     def get_perf(self, concept_class):
         if self.representation_class is None:
