@@ -1,4 +1,4 @@
-from decimal import Decimal
+from fractions import Fraction
 from evolvability.monotone_conjunction.performance_oracle_with_tolerance import PerformanceOracleWithTolerance
 
 __author__ = 'Ben'
@@ -15,7 +15,7 @@ class PerformanceOracleWithTolerancePrecise(PerformanceOracleWithTolerance):
 
         union, intersection, in_rep_not_in_ideal, in_ideal_not_in_rep = self.get_variables_of_correlation(representation, conjunction)
 
-        real_perf = Decimal(2**-union) + (Decimal(1) - Decimal(2**-intersection)) + Decimal(2**-intersection)*(Decimal(1) - Decimal(2**-in_rep_not_in_ideal)) *\
-                                                                                    (Decimal(1) - Decimal(2**-in_ideal_not_in_rep))
+        real_perf = Fraction(2**-union) + (1 - Fraction(2**-intersection)) + Fraction(2**-intersection)*(1 - Fraction(2**-in_rep_not_in_ideal)) *\
+                                                                                                        (1 - Fraction(2**-in_ideal_not_in_rep))
 
         return real_perf

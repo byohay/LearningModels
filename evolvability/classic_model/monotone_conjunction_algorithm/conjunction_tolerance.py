@@ -1,4 +1,4 @@
-from decimal import Decimal
+from fractions import Fraction
 
 __author__ = 'yben_000'
 
@@ -8,4 +8,4 @@ class ConjunctionTolerance(object):
         self.length = length
 
     def get_tolerance(self, *args):
-        return Decimal(2**(- 2*self.length - 1))
+        return Fraction(2**(-2*self.length - 1))

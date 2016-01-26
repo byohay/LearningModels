@@ -1,4 +1,4 @@
-from decimal import Decimal
+from fractions import Fraction
 from math import log
 
 from evolvability.classic_model.monotone_conjunction_algorithm.conjunction_mutation_probability import \
@@ -26,7 +26,7 @@ __author__ = 'yben_000'
 class CommonClassesCreator(object):
     def __init__(self, is_neigh_precomp=True, is_using_output_one_neigh=True):
         self.length = 100
-        self.epsilon = Decimal(2**-76)
+        self.epsilon = Fraction(2**-55)
         self.number_of_activations = 20
         self.number_of_mutations_from_mutator = 50
         self.population_size = 75
