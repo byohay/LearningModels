@@ -39,6 +39,7 @@ class CommonClassesCreator(object):
             self.mutation_neighborhood = MonotoneConjunctionNeighborhood()
 
         self.mutation_probability = ConjunctionMutationProbability(self.mutation_neighborhood)
+        self.recombination_factor = 1
 
     def frange(self, x, y, jump):
         list_range = list()
@@ -62,6 +63,9 @@ class CommonClassesCreator(object):
     def get_HGT_factor(self):
         return self.HGT_factor
 
+    def get_recombination_factor(self):
+        return self.recombination_factor
+
     def get_mutation_factor(self):
         return self.mutation_factor
 
@@ -82,6 +86,9 @@ class CommonClassesCreator(object):
 
     def create_next_HGT_process(self, HGT_factor):
         self.natural_process = HGTProcess(HGT_factor, self.length)
+
+    def set_recombination_factor(self, recombination_factor):
+        self.recombination_factor = recombination_factor
 
     def create_recombination_process(self, rate=1):
         self.natural_process = RecombinationProcess(rate)

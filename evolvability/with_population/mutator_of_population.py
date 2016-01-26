@@ -20,7 +20,7 @@ class MutatorOfPopulation(object):
         for rep in desc:
             rep_perf = self.performance.get_estimated_performance(rep)
 
-            if rep_perf >= parent_performance - Decimal(parent_tolerance):
+            if rep_perf >= parent_performance - parent_tolerance:
                 feas.append(rep)
 
         return feas

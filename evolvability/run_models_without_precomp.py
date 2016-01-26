@@ -235,6 +235,7 @@ def compare_with_real_data(common_classes):
     number_of_activations = common_classes.get_number_of_activations()
     common_classes.set_simulation_variables(0.176, 0.1, 1)
     number_of_parallel = 3
+    common_classes.set_recombination_factor(0.176)
     parallel = Parallel(n_jobs=number_of_parallel)
     length, epsilon, mutation_neighborhood, tolerance = common_classes.get_common_classes()
 

@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 __author__ = 'yben_000'
 
 
@@ -6,4 +8,4 @@ class ConjunctionTolerance(object):
         self.length = length
 
     def get_tolerance(self, *args):
-        return 2**(- 2*self.length - 1)
+        return Decimal(2**(- 2*self.length - 1))
