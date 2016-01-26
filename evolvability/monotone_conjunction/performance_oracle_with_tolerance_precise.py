@@ -1,5 +1,4 @@
 from decimal import Decimal
-from fractions import Fraction
 from evolvability.monotone_conjunction.performance_oracle_with_tolerance import PerformanceOracleWithTolerance
 
 __author__ = 'Ben'

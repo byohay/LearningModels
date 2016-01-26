@@ -1,4 +1,3 @@
-from decimal import Decimal
 from numpy import random
 
 __author__ = 'yben_000'
@@ -39,7 +38,7 @@ class PerformanceOracleWithTolerance(object):
         return real_perf
 
     def get_estimated_performance(self, representation):
-        tolerance = Decimal(random.uniform(-self.tolerance_param, self.tolerance_param))
+        tolerance = random.uniform(-self.tolerance_param, self.tolerance_param)
         real_perf = self.get_real_performance(representation)
         if tolerance + real_perf > 1:
             return 1
