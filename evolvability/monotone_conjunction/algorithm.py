@@ -15,13 +15,13 @@ class MonotoneConjunctionAlgorithm(object):
 
         return False
 
-    def get_max_perf(self, population):
+    def get_min_distance_from_epsilon(self, population):
         max_perf = 0
 
         for rep in population:
             max_perf = max(self.performance_oracle.get_real_performance(rep), max_perf)
 
-        return max_perf
+        return (1 - max_perf) - self.epsilon
 
     def is_representation_similar_to_ideal(self, rep):
-        return 1 - Fraction(self.performance_oracle.get_real_performance(rep)) < self.epsilon
+        return 1 - self.performance_oracle.get_real_performance(rep) < self.epsilon
